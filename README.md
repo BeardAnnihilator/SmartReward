@@ -1,4 +1,4 @@
 SmartReward
 ===========
 
-Smart Reword codebase
+Smart Reward codebase
