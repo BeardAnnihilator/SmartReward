@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartReward", "SmartReward\SmartReward.csproj", "{D388FD1C-4156-4F80-A2C4-35A24E838AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartReward.Tests", "SmartReward.Tests\SmartReward.Tests.csproj", "{F90CC348-247E-4A07-B98E-B7B6057D8EA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D388FD1C-4156-4F80-A2C4-35A24E838AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D388FD1C-4156-4F80-A2C4-35A24E838AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D388FD1C-4156-4F80-A2C4-35A24E838AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D388FD1C-4156-4F80-A2C4-35A24E838AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90CC348-247E-4A07-B98E-B7B6057D8EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90CC348-247E-4A07-B98E-B7B6057D8EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90CC348-247E-4A07-B98E-B7B6057D8EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90CC348-247E-4A07-B98E-B7B6057D8EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
