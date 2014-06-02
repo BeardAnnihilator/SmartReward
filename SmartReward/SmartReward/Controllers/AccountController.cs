@@ -40,8 +40,8 @@ namespace SmartReward.Controllers
                 return RedirectToLocal(returnUrl);
             }
 
-            // Si nous sommes arrivés là, quelque chose a échoué, réafficher le formulaire
-            ModelState.AddModelError("", "Le nom d'utilisateur ou mot de passe fourni est incorrect.");
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
 
@@ -76,7 +76,7 @@ namespace SmartReward.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Tentative d'inscription de l'utilisateur
+                // Attempt to register the user
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
@@ -89,7 +89,7 @@ namespace SmartReward.Controllers
                 }
             }
 
-            // Si nous sommes arrivés là, quelque chose a échoué, réafficher le formulaire
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -103,10 +103,10 @@ namespace SmartReward.Controllers
             string ownerAccount = OAuthWebSecurity.GetUserName(provider, providerUserId);
             ManageMessageId? message = null;
 
-            // Dissocier uniquement le compte si l’utilisateur actuellement connecté est le propriétaire
+            // Only disassociate the account if the currently logged in user is the owner
             if (ownerAccount == User.Identity.Name)
             {
-                // Utiliser une transaction pour empêcher l’utilisateur de supprimer ses dernières informations d’identification de connexion
+                // Use a transaction to prevent the user from deleting their last login credential
                 using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
                 {
                     bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
@@ -128,9 +128,9 @@ namespace SmartReward.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Votre mot de passe a été modifié."
-                : message == ManageMessageId.SetPasswordSuccess ? "Votre mot de passe a été défini."
-                : message == ManageMessageId.RemoveLoginSuccess ? "La connexion externe a été supprimée."
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -151,7 +151,7 @@ namespace SmartReward.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // ChangePassword va lever une exception plutôt que de renvoyer la valeur False dans certains scénarios de défaillance.
+                    // ChangePassword will throw an exception rather than return false in certain failure scenarios.
                     bool changePasswordSucceeded;
                     try
                     {
@@ -168,14 +168,14 @@ namespace SmartReward.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Le mot de passe actuel est incorrect ou le nouveau mot de passe n'est pas valide.");
+                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
                     }
                 }
             }
             else
             {
-                // L’utilisateur n’a pas de mot de passe local. Veuillez donc supprimer les erreurs de validation provoquées par un
-                // champ OldPassword manquant
+                // User does not have a local password so remove any validation errors caused by a missing
+                // OldPassword field
                 ModelState state = ModelState["OldPassword"];
                 if (state != null)
                 {
@@ -189,14 +189,14 @@ namespace SmartReward.Controllers
                         WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        ModelState.AddModelError("", e);
+                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
                     }
                 }
             }
 
-            // Si nous sommes arrivés là, quelque chose a échoué, réafficher le formulaire
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -230,13 +230,13 @@ namespace SmartReward.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                // Si l’utilisateur actuel est connecté, ajoutez le nouveau compte
+                // If the current user is logged in add the new account
                 OAuthWebSecurity.CreateOrUpdateAccount(result.Provider, result.ProviderUserId, User.Identity.Name);
                 return RedirectToLocal(returnUrl);
             }
             else
             {
-                // L’utilisateur est nouveau. Demander le nom d’appartenance souhaité
+                // User is new, ask for their desired membership name
                 string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
                 ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
                 ViewBag.ReturnUrl = returnUrl;
@@ -262,14 +262,14 @@ namespace SmartReward.Controllers
 
             if (ModelState.IsValid)
             {
-                // Insérer un nouvel utilisateur dans la base de données
+                // Insert a new user into the database
                 using (UsersContext db = new UsersContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
-                    // Vérifier si l'utilisateur n'existe pas déjà
+                    // Check if user already exists
                     if (user == null)
                     {
-                        // Insérer le nom dans la table des profils
+                        // Insert name into the profile table
                         db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
                         db.SaveChanges();
 
@@ -280,7 +280,7 @@ namespace SmartReward.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "Le nom d'utilisateur existe déjà. Entrez un nom d'utilisateur différent.");
+                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
                     }
                 }
             }
@@ -328,7 +328,7 @@ namespace SmartReward.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
-        #region Applications auxiliaires
+        #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -367,39 +367,39 @@ namespace SmartReward.Controllers
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
-            // Consultez http://go.microsoft.com/fwlink/?LinkID=177550 pour
-            // obtenir la liste complète des codes d'état.
+            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
+            // a full list of status codes.
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "Le nom d'utilisateur existe déjà. Entrez un nom d'utilisateur différent.";
+                    return "User name already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "Un nom d'utilisateur pour cette adresse de messagerie existe déjà. Entrez une adresse de messagerie différente.";
+                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "Le mot de passe fourni n'est pas valide. Entrez une valeur de mot de passe valide.";
+                    return "The password provided is invalid. Please enter a valid password value.";
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "L'adresse de messagerie fournie n'est pas valide. Vérifiez la valeur et réessayez.";
+                    return "The e-mail address provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return "La réponse de récupération du mot de passe fournie n'est pas valide. Vérifiez la valeur et réessayez.";
+                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return "La question de récupération du mot de passe fournie n'est pas valide. Vérifiez la valeur et réessayez.";
+                    return "The password retrieval question provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "Le nom d'utilisateur fourni n'est pas valide. Vérifiez la valeur et réessayez.";
+                    return "The user name provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "Le fournisseur d'authentification a retourné une erreur. Vérifiez votre entrée et réessayez. Si le problème persiste, contactez votre administrateur système.";
+                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "La demande de création d'utilisateur a été annulée. Vérifiez votre entrée et réessayez. Si le problème persiste, contactez votre administrateur système.";
+                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
 
                 default:
-                    return "Une erreur inconnue s'est produite. Vérifiez votre entrée et réessayez. Si le problème persiste, contactez votre administrateur système.";
+                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
         }
         #endregion

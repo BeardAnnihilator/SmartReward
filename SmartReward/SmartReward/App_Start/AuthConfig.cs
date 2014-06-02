@@ -11,8 +11,8 @@ namespace SmartReward
     {
         public static void RegisterAuth()
         {
-            // Pour permettre aux utilisateurs de ce site de se connecter à l’aide de leur compte à partir d’autres sites tels que Microsoft, Facebook et Twitter,
-            // vous devez mettre à jour ce site. Pour plus d’informations, consultez la page http://go.microsoft.com/fwlink/?LinkID=252166
+            // To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, and Twitter,
+            // you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=252166
 
             //OAuthWebSecurity.RegisterMicrosoftClient(
             //    clientId: "",

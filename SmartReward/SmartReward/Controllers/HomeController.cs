@@ -10,21 +10,21 @@ namespace SmartReward.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modifiez ce modèle pour dynamiser votre application ASP.NET MVC.";
+            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Votre page de description d’application.";
+            ViewBag.Message = "Your app description page.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Votre page de contact.";
+            ViewBag.Message = "Your contact page.";
 
             return View();
         }

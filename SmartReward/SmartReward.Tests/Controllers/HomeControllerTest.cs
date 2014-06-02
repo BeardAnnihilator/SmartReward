@@ -15,39 +15,39 @@ namespace SmartReward.Tests.Controllers
         [TestMethod]
         public void Index()
         {
-            // Réorganiser
+            // Arrange
             HomeController controller = new HomeController();
 
-            // Agir
+            // Act
             ViewResult result = controller.Index() as ViewResult;
 
-            // Déclarer
-            Assert.AreEqual("Modifiez ce modèle pour dynamiser votre application ASP.NET MVC.", result.ViewBag.Message);
+            // Assert
+            Assert.AreEqual("Modify this template to jump-start your ASP.NET MVC application.", result.ViewBag.Message);
         }
 
         [TestMethod]
         public void About()
         {
-            // Réorganiser
+            // Arrange
             HomeController controller = new HomeController();
 
-            // Agir
+            // Act
             ViewResult result = controller.About() as ViewResult;
 
-            // Déclarer
+            // Assert
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
         public void Contact()
         {
-            // Réorganiser
+            // Arrange
             HomeController controller = new HomeController();
 
-            // Agir
+            // Act
             ViewResult result = controller.Contact() as ViewResult;
 
-            // Déclarer
+            // Assert
             Assert.IsNotNull(result);
         }
     }
