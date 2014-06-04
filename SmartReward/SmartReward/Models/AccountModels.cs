@@ -8,31 +8,13 @@ using System.Web.Security;
 
 namespace SmartReward.Models
 {
-    public class UsersContext : DbContext
-    {
-        public UsersContext()
-            : base("DefaultConnection")
-        {
-        }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-    }
-
-    [Table("UserProfile")]
-    public class UserProfile
-    {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-    }
-
     public class RegisterExternalLoginModel
     {
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Merci de saisir une adresse email valide.")]
+        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$", ErrorMessage = "Merci de saisir une adresse email valide.")]
+        public string Email { get; set; }
         public string ExternalLoginData { get; set; }
     }
 
@@ -58,8 +40,10 @@ namespace SmartReward.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Merci de saisir une adresse email valide.")]
+        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$", ErrorMessage = "Merci de saisir une adresse email valide.")]
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -73,8 +57,10 @@ namespace SmartReward.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Merci de saisir une adresse email valide.")]
+        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$", ErrorMessage = "Merci de saisir une adresse email valide.")]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

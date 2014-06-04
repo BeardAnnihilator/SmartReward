@@ -187,7 +187,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406041151253_RenameTableUser.cs" />
+    <Compile Include="Migrations\201406041151253_RenameTableUser.Designer.cs">
+      <DependentUpon>201406041151253_RenameTableUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406041200131_fix.cs" />
+    <Compile Include="Migrations\201406041200131_fix.Designer.cs">
+      <DependentUpon>201406041200131_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\SmartRewardEntities.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +318,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201406041151253_RenameTableUser.resx">
+      <DependentUpon>201406041151253_RenameTableUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406041200131_fix.resx">
+      <DependentUpon>201406041200131_fix.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

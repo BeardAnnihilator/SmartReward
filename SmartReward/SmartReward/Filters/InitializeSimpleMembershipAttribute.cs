@@ -25,11 +25,11 @@ namespace SmartReward.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<SmartRewardEntities>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new SmartRewardEntities())
                     {
                         if (!context.Database.Exists())
                         {
@@ -38,7 +38,7 @@ namespace SmartReward.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("SmartRewardEntities", "Users", "UserId", "Email", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
