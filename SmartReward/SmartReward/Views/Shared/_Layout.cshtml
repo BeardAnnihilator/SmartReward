@@ -13,18 +13,21 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("Smart Reward", "Index", "Home")</p>
                 </div>
+
                 <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                            <li>@Html.ActionLink("A propos", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            @if (!Request.IsAuthenticated && Request.RequestContext.RouteData.Values["controller"].ToString().Equals("Home"))
+                            {
+                            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-default" })</li>
+                            }
                         </ul>
+                        
                     </nav>
                 </div>
             </div>
@@ -38,7 +41,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - Smart Reward</p>
                 </div>
             </div>
         </footer>

@@ -1,0 +1,23 @@
+﻿@model SmartReward.Models.RegisterModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.TextBoxFor(m => m.Email, new { placeholder="Votre adresse e-mail"})
+            </li>
+            <li>
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Mot de passe" })
+            </li>
+            <li>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Confirmez votre mot de passe" })
+            </li>
+        </ol>
+        <input type="submit" value="S'inscrire sur Smart Reward" class="btn btn-success"/>
+    </fieldset>
+}
