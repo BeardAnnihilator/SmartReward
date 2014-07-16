@@ -24,7 +24,7 @@
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                             @if (!Request.IsAuthenticated && Request.RequestContext.RouteData.Values["controller"].ToString().Equals("Home"))
                             {
-                            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-default" })</li>
+                            <li>@Html.ActionLink("Connexion", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-default" })</li>
                             }
                         </ul>
                         
