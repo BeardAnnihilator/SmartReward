@@ -10,8 +10,8 @@ namespace SmartReward.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index","Dashboard");
             return View();
         }
 

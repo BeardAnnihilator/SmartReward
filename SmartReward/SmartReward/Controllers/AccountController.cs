@@ -48,8 +48,6 @@ namespace SmartReward.Controllers
         //
         // POST: /Account/LogOff
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
@@ -81,7 +79,7 @@ namespace SmartReward.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.Email, model.Password);
                     WebSecurity.Login(model.Email, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 catch (MembershipCreateUserException e)
                 {

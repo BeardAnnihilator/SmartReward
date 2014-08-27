@@ -1,6 +1,6 @@
 ﻿@model SmartReward.Models.RegisterModel
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Register", "Account"))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()

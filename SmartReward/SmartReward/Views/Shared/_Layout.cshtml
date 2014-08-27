@@ -26,6 +26,10 @@
                             {
                             <li>@Html.ActionLink("Connexion", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-default" })</li>
                             }
+                            else if (Request.IsAuthenticated)
+                            {
+                                 <li>@Html.ActionLink("Se déconnecter", "LogOff", "Account", routeValues: null, htmlAttributes: new { id = "logoffButton", @class = "btn btn-default" })</li>
+                            }
                         </ul>
                         
                     </nav>
