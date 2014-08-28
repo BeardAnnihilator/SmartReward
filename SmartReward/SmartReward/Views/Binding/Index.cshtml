@@ -1,0 +1,22 @@
+﻿@model BindingViewModel
+
+@{
+    ViewBag.Title = "Inviter";
+    ViewBag.Message = "Constituez votre famille";
+}
+
+@section head{
+    <link rel="stylesheet" type="text/css" href="~/Content/css/binding.css">
+}
+@*
+<form method="get">
+    <h2>Recherche d'utilisateur : <input type="search" name="searchTerm" placeholder="Nom d'utilisateur ou email"> <input type="submit" value="Valider"></h2>
+</form>
+    *@
+
+@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResult" }))
+{ 
+    <h2>Recherche d'utilisateur : <input type="search" name="searchTerm" placeholder="Nom d'utilisateur ou email"> <input type="submit" value="Valider"></h2>
+}
+
+@Html.Partial("_Members", Model)

@@ -21,9 +21,9 @@
         </p>
         <ol>
             <li class="name">
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
             </li>
         </ol>
         @Html.HiddenFor(m => m.ExternalLoginData)
@@ -32,5 +32,4 @@
 }
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
