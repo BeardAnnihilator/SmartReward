@@ -1,4 +1,5 @@
-﻿using SmartReward.Models;
+﻿using PagedList;
+using SmartReward.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace SmartReward.ViewModel
 {
     public class BindingViewModel
     {
-        public List<User> result;
+        public IPagedList<User> result;
     }
 }

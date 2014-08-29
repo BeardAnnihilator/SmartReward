@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using SmartReward.Helpers;
 using SmartReward.Models;
+using PagedList;
 
 namespace SmartReward.Controllers
 {
@@ -28,7 +29,7 @@ namespace SmartReward.Controllers
         //
         // GET: /Binding/
 
-        public ActionResult Index(string searchTerm = null)
+        public ActionResult Index(string searchTerm = null, int page = 1)
         {
             
             var model = new BindingViewModel();
@@ -36,8 +37,7 @@ namespace SmartReward.Controllers
             model.result = db.Users
                 .Where(u => u.UserId != user.UserId && (searchTerm == null || u.Email.Contains(searchTerm)))
                 .OrderBy(u => u.UserId)
-                .Take(10)
-                .ToList();
+                .ToPagedList(page, 10);
 
             if (Request.IsAjaxRequest())
             {

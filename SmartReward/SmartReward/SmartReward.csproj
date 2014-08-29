@@ -213,6 +213,7 @@
     <Compile Include="ViewModel\BindingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\binding.css" />
     <Content Include="Content\css\home.css" />
     <Content Include="Content\css\shared.css" />
     <Content Include="Content\fonts\PrimarySchoolPLEASE READ!.txt" />

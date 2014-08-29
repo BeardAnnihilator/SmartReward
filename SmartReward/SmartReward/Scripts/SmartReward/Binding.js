@@ -35,10 +35,28 @@ $(function () {
         $input.autocomplete(options);
     }
 
+    var getPage = function () {
+        var $a = $(this);
+
+        var options = {
+            url: $a.attr("href"),
+            data: $("form").serialize(),
+            type: "get"
+        };
+
+        $.ajax(options).done(function (data) {
+            var target = $a.parents("div.pagedList").attr("data-target");
+            $(target).replaceWith(data);
+        });
+        return false;
+    }
+
+
     $('#searchTerm').submit(ajaxSubmitForm);
     $('#searchTerm').bind('input', function () {
         $("#searchForm").submit();
     });
     $("input[data-autocomplete]").each(createAutocomplete);
+    $(".main-content").on("click", ".pagedList a", getPage);
 });
 
