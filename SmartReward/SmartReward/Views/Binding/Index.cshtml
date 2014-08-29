@@ -14,9 +14,13 @@
 </form>
     *@
 
-@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResult" }))
+@using (Ajax.BeginForm("Index", "Binding", null, new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResult" },new { id = "searchForm"}))
 { 
-    <h2>Recherche d'utilisateur : <input type="search" name="searchTerm" placeholder="Nom d'utilisateur ou email"> <input type="submit" value="Valider"></h2>
+    <h2>Recherche d'utilisateur : <input id="searchTerm" type="search" name="searchTerm" placeholder="Nom d'utilisateur ou email"></h2>
 }
 
 @Html.Partial("_Members", Model)
+
+@section scripts{
+    <script src="~/Scripts/SmartReward/Binding.js"></script>
+}
