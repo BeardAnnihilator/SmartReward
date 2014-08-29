@@ -15,6 +15,16 @@ namespace SmartReward.Controllers
     public class BindingController : Controller
     {
         private SmartRewardEntities db = new SmartRewardEntities();
+
+        public ActionResult AutoComplete(string term)
+        {
+            var model = db.Users
+                .Where(u => u.Email.StartsWith(term))
+                .Take(5)
+                .Select(r => new { label = r.Email });
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
         //
         // GET: /Binding/
 

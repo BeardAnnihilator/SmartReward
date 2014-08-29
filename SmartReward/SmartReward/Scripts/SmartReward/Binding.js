@@ -17,10 +17,28 @@ $(function () {
         return false;
     }
 
-    $('#searchTerm').submit(ajaxSubmitForm);
+    var autoCompleteAndAjaxSubmitForm = function (event, ui) {
+        var $input = $(this);
+        $input.val(ui.item.label);
+        var $form = $input.parents("form:first");
+        $form.submit();
+    }
 
+    var createAutocomplete = function () {
+        var $input = $(this);
+
+        var options = {
+            source: $input.attr("data-autocomplete"),
+            select: autoCompleteAndAjaxSubmitForm
+        }
+
+        $input.autocomplete(options);
+    }
+
+    $('#searchTerm').submit(ajaxSubmitForm);
     $('#searchTerm').bind('input', function () {
         $("#searchForm").submit();
     });
+    $("input[data-autocomplete]").each(createAutocomplete);
 });
 
