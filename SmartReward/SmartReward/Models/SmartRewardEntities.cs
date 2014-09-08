@@ -14,10 +14,13 @@ namespace SmartReward.Models
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
          // Fluent API
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Notification>().HasRequired(n => n.Sender).WithMany(u => u.SendedNotifications).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Notification>().HasRequired(n => n.Receiver).WithMany(u => u.ReceivedNotifications).WillCascadeOnDelete(false);
         }
     }
 }

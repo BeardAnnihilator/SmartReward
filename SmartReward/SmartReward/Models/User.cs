@@ -14,5 +14,8 @@ namespace SmartReward.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string Email { get; set; }
+
+        virtual public List<Notification> ReceivedNotifications { get; set; }
+        virtual public List<Notification> SendedNotifications { get; set; }
     }
 }
