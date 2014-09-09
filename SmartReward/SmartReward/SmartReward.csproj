@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201409081015069_Initial.Designer.cs">
       <DependentUpon>201409081015069_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409081318264_notification_response.cs" />
+    <Compile Include="Migrations\201409081318264_notification_response.Designer.cs">
+      <DependentUpon>201409081318264_notification_response.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Notification.cs" />
@@ -348,6 +352,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201409081015069_Initial.resx">
       <DependentUpon>201409081015069_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409081318264_notification_response.resx">
+      <DependentUpon>201409081318264_notification_response.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
