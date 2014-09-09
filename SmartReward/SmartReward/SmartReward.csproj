@@ -197,16 +197,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DBHelpers.cs" />
-    <Compile Include="Migrations\201406041151253_RenameTableUser.cs" />
-    <Compile Include="Migrations\201406041151253_RenameTableUser.Designer.cs">
-      <DependentUpon>201406041151253_RenameTableUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406041200131_fix.cs" />
-    <Compile Include="Migrations\201406041200131_fix.Designer.cs">
-      <DependentUpon>201406041200131_fix.cs</DependentUpon>
+    <Compile Include="Migrations\201409081015069_Initial.cs" />
+    <Compile Include="Migrations\201409081015069_Initial.Designer.cs">
+      <DependentUpon>201409081015069_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\SmartRewardEntities.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -349,11 +346,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201406041151253_RenameTableUser.resx">
-      <DependentUpon>201406041151253_RenameTableUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406041200131_fix.resx">
-      <DependentUpon>201406041200131_fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409081015069_Initial.resx">
+      <DependentUpon>201409081015069_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,7 +10,7 @@
     @foreach (var item in Model.result)
     {
         <div>
-            <h1>@Html.DisplayFor(model => item.Email) @Html.ActionLink("Inviter", null, null, routeValues: null, htmlAttributes: new { id = "add" + item.UserId, @class = "btn btn-default" })</h1>
+            <h1>@Html.DisplayFor(model => item.Email) @Html.ActionLink("Inviter", "BindingChild", "Binding", routeValues: null, htmlAttributes: new { id = "add" + item.UserId, @class = "btn btn-default" })</h1>
             <hr />
         </div>
     }

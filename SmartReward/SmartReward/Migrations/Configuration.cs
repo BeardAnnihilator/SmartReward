@@ -9,7 +9,7 @@ namespace SmartReward.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(SmartReward.Models.SmartRewardEntities context)

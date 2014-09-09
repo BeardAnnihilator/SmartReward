@@ -15,7 +15,25 @@ namespace SmartReward.Models
         public int UserId { get; set; }
         public string Email { get; set; }
 
+        virtual public List<User> Parents { get; set; }
+        virtual public List<User> Childs { get; set; }
         virtual public List<Notification> ReceivedNotifications { get; set; }
         virtual public List<Notification> SendedNotifications { get; set; }
+
+        public bool SendBindingChildRequest(User target, SmartRewardEntities db)
+        {
+            if (!Childs.Contains(target)
+                && SendedNotifications.Where(n =>
+                    n.Receiver.UserId.Equals(target.UserId)
+                    && n.TypeNotificationCode == "BINDING_CHILD?"
+                    && n.Response == null)
+                    .ToList().Count == 0)
+            {
+                this.SendedNotifications.Add(new Notification { Sender = this, Receiver = target, TypeNotificationCode = "BINDING_CHILD?" });
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

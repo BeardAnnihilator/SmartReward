@@ -46,5 +46,19 @@ namespace SmartReward.Controllers
 
             return View(model);
         }
+
+        public ActionResult BindingChild(int targetId)
+        {
+            var user = User.GetSmartRewardUser(db);
+            var target = db.Users.Find(targetId);
+
+            bool res = user.SendBindingChildRequest(target, db);
+
+            if (Request.IsAjaxRequest())
+            {
+                return null;
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

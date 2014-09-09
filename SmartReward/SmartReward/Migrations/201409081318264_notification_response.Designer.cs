@@ -5,13 +5,13 @@ namespace SmartReward.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class RenameTableUser : IMigrationMetadata
+    public sealed partial class notification_response : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameTableUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(notification_response));
         
         string IMigrationMetadata.Id
         {
-            get { return "201406041151253_RenameTableUser"; }
+            get { return "201409081318264_notification_response"; }
         }
         
         string IMigrationMetadata.Source
