@@ -154,3 +154,5 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+SmartReward/SmartReward/App_Data/aspnet-SmartReward-20140602101759_log.ldf
+SmartReward/SmartReward/App_Data/aspnet-SmartReward-20140602101759.mdf
