@@ -35,5 +35,21 @@ namespace SmartReward.Models
             }
             return false;
         }
+
+        public bool SendBindingParentRequest(User target, SmartRewardEntities db)
+        {
+            if (!Parents.Contains(target)
+                && SendedNotifications.Where(n =>
+                    n.Receiver.UserId.Equals(target.UserId)
+                    && n.TypeNotificationCode == "BINDING_PARENT?"
+                    && n.Response == null)
+                    .ToList().Count == 0)
+            {
+                this.SendedNotifications.Add(new Notification { Sender = this, Receiver = target, TypeNotificationCode = "BINDING_PARENT?" });
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

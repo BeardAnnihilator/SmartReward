@@ -9,6 +9,8 @@ namespace SmartReward.ViewModel
 {
     public class BindingViewModel
     {
-        public IPagedList<User> result;
+        public IPagedList<User> result { get; set; }
+        public string EmailToSend { get; set; }
+        public string EmailBody { get; set; }
     }
 }

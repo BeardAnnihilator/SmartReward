@@ -8,15 +8,34 @@
 @section head{
     <link rel="stylesheet" type="text/css" href="~/Content/css/binding.css">
 }
-@*
-<form method="get">
-    <h2>Recherche d'utilisateur : <input type="search" name="searchTerm" placeholder="Nom d'utilisateur ou email"> <input type="submit" value="Valider"></h2>
-</form>
-    *@
+
+<!-- Modal Send Email-->
+<div class="modal fade" id="ModalSendEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Envoyer une invitation par E-mail</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("SendMail","Binding"))
+                {
+                    @Html.TextBoxFor(m => m.EmailToSend)
+                    @Html.TextBoxFor(m => m.EmailBody)
+                    <input type="submit" value="Envoyer"/>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @using (Ajax.BeginForm("Index", "Binding", null, new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResult" },new { id = "searchForm"}))
 { 
     <h2>Recherche d'utilisateur : <input id="searchTerm" type="search" name="searchTerm" placeholder="Nom d'utilisateur ou email" data-autocomplete="@Url.Action("AutoComplete")"></h2>
+    <a data-toggle="modal" data-target="#ModalSendEmail">La personne que vous cherchez n'est pas encore inscrite ?</a>
 }
 
 @Html.Partial("_Members", Model)
