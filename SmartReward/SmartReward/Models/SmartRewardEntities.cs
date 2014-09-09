@@ -21,7 +21,6 @@ namespace SmartReward.Models
         {
             modelBuilder.Entity<Notification>().HasRequired(n => n.Sender).WithMany(u => u.SendedNotifications).WillCascadeOnDelete(false);
             modelBuilder.Entity<Notification>().HasRequired(n => n.Receiver).WithMany(u => u.ReceivedNotifications).WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Notification>().HasOptional(n => n.Query).WithOptionalDependent(n2 => n2.Response);
         }
     }
