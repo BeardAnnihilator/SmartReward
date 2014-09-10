@@ -19,6 +19,7 @@ namespace SmartReward.Models
         virtual public List<User> Childs { get; set; }
         virtual public List<Notification> ReceivedNotifications { get; set; }
         virtual public List<Notification> SendedNotifications { get; set; }
+        virtual public List<ExternalInvitation> ExternalInvitation { get; set; }
 
         public bool SendBindingChildRequest(User target, SmartRewardEntities db)
         {

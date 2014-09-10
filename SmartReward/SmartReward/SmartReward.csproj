@@ -205,8 +205,13 @@
     <Compile Include="Migrations\201409081318264_notification_response.Designer.cs">
       <DependentUpon>201409081318264_notification_response.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409101333243_external-invitation.cs" />
+    <Compile Include="Migrations\201409101333243_external-invitation.Designer.cs">
+      <DependentUpon>201409101333243_external-invitation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ExternalInvitation.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\SmartRewardEntities.cs" />
     <Compile Include="Models\User.cs" />
@@ -356,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409081318264_notification_response.resx">
       <DependentUpon>201409081318264_notification_response.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409101333243_external-invitation.resx">
+      <DependentUpon>201409101333243_external-invitation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

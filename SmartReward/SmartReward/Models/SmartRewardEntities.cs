@@ -15,7 +15,7 @@ namespace SmartReward.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-
+        public DbSet<ExternalInvitation> ExternalInvitations { get; set; }
          // Fluent API
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
