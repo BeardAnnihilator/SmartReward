@@ -197,6 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DBHelpers.cs" />
+    <Compile Include="Helpers\GravatarHtmlHelper.cs" />
     <Compile Include="Migrations\201409081015069_Initial.cs" />
     <Compile Include="Migrations\201409081015069_Initial.Designer.cs">
       <DependentUpon>201409081015069_Initial.cs</DependentUpon>
@@ -220,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\binding.css" />
+    <Content Include="Content\css\dashboard.css" />
     <Content Include="Content\css\home.css" />
     <Content Include="Content\css\shared.css" />
     <Content Include="Content\fonts\PrimarySchoolPLEASE READ!.txt" />

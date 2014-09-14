@@ -1,1 +1,61 @@
 @import "shared.less";
+
+#searchBlock{
+	height: 50px;
+	div{
+		height: 100%;
+	}
+	#searchTerm{
+		margin: 0px; 
+		display: block; 
+		width: 100%; 
+		height: 100%;	
+	}
+}
+
+.pagedList{
+	margin-top: 10px;
+	text-align:center;
+	.pagination{
+		margin:0 auto;
+	}
+}
+
+#results{
+	width: 100%;
+	list-style: none;
+	padding: 0px;
+	background: white;
+	border-bottom: 1px solid #d8d8d8;
+	.row {
+    	display: table;
+	}
+
+	[class*="col-"] {
+    	float: none;
+    	display: table-cell;
+    	vertical-align: top;
+	}
+
+	li{
+		border-top: 1px solid #d8d8d8;
+
+		img{
+			height: 100px;
+			width: 100px;
+			padding: 10px;
+		}
+		.buttonParent{
+			text-align:center;
+			.btn{
+				font-size: 1.2em;
+				height: 50px;
+				width: 100px;
+				margin: auto;
+  				position: absolute;
+  				top: 0; left: 0; bottom: 0; right: 0;
+			}
+		}
+	}
+
+}

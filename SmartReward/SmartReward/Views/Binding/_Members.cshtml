@@ -7,11 +7,27 @@
         PagedListRenderOptions.MinimalWithPageCountText)
     </div>
 
-    @foreach (var item in Model.result)
-    {
-        <div>
-            <h1>@Html.DisplayFor(model => item.Email) @Html.ActionLink("Inviter", "BindingChild", "Binding", routeValues: new { targetId = item.UserId}, htmlAttributes: new { id = "add" + item.UserId, @class = "btn btn-default" })</h1>
-            <hr />
-        </div>
-    }
+    <ul id="results">
+        @foreach (var item in Model.result)
+        {
+            <li>
+                <div class="row">
+                    <div class="col-md-2">
+                        @*<img src="https://fr.gravatar.com/userimage/33801492/0e2c2e3c0977e77244580a86457a49ae.jpg"></div>*@
+                        @Html.GravatarImage(item.Email, 80, GravatarHtmlHelper.DefaultImage.Identicon)
+                    </div>
+                        <div class="col-md-7">
+                            <h3>@Html.DisplayFor(model => item.Email)</h3>
+                        </div>
+                        <div class="col-md-3 buttonParent">
+                            @Html.ActionLink("Inviter", "BindingChild", "Binding", routeValues: new { targetId = item.UserId }, htmlAttributes: new { id = "add" + item.UserId, @class = "btn btn-primary" })
+                        </div>
+                    </div>
+            </li>
+        }
+    </ul>
+    <div class="pagedList" data-target="#searchResult">
+        @Html.PagedListPager(Model.result, page => Url.Action("Index", new { page }),
+        PagedListRenderOptions.MinimalWithPageCountText)
+    </div>
 </div>

@@ -7,10 +7,18 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/dashboard.css">
 }
 
-<h2>Tableau de bord</h2>
-
-<div id="actions">
-<ul>
-    <li>@Html.ActionLink("Ajouter un membre","Index","Binding")</li>
-</ul>
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <div id="actions">
+            <h2>Actions</h2>
+            <ul>
+                <li>@Html.ActionLink("Consulter mon cercle", "Index", "TODO")</li>
+                <li>@Html.ActionLink("Editer mon catalogue", "Index", "TODO")</li>
+                <li>@Html.ActionLink("Editer ma tasklist", "Index", "TODO")</li>
+                <li>@Html.ActionLink("Rechercher un membre", "Index", "Binding")</li>
+            </ul>
+        </div>
+    </div>
 </div>
+
