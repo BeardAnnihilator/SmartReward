@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartReward", "SmartReward\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartReward.Tests", "SmartReward.Tests\SmartReward.Tests.csproj", "{D745B437-BA05-4EF1-8D9B-8385C9BD6D1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Ressources\Resources.csproj", "{599A44B9-BAA0-49DC-9010-EDB74555ECD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D745B437-BA05-4EF1-8D9B-8385C9BD6D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D745B437-BA05-4EF1-8D9B-8385C9BD6D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D745B437-BA05-4EF1-8D9B-8385C9BD6D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599A44B9-BAA0-49DC-9010-EDB74555ECD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599A44B9-BAA0-49DC-9010-EDB74555ECD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599A44B9-BAA0-49DC-9010-EDB74555ECD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599A44B9-BAA0-49DC-9010-EDB74555ECD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

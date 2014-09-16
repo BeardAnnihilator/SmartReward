@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201409101333243_external-invitation.Designer.cs">
       <DependentUpon>201409101333243_external-invitation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409151145056_seen-notification.cs" />
+    <Compile Include="Migrations\201409151145056_seen-notification.Designer.cs">
+      <DependentUpon>201409151145056_seen-notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ExternalInvitation.cs" />
@@ -367,6 +371,15 @@
     <EmbeddedResource Include="Migrations\201409101333243_external-invitation.resx">
       <DependentUpon>201409101333243_external-invitation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409151145056_seen-notification.resx">
+      <DependentUpon>201409151145056_seen-notification.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ressources\Resources.csproj">
+      <Project>{599a44b9-baa0-49dc-9010-edb74555ecd0}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

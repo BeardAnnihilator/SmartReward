@@ -14,9 +14,11 @@ namespace SmartReward.Models
         public int Id { get; set; }
         public string TypeNotificationCode { get; set; }
         public bool? Value { get; set; }
+        public bool Seen { get; set; }
         virtual public Notification Query { get; set; }
         virtual public Notification Response { get; set; }
         virtual public User Sender { get; set; }
         virtual public User Receiver { get; set; }
+
     }
 }
