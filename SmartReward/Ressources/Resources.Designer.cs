@@ -59,5 +59,14 @@ namespace Ressources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to testEN.
+        /// </summary>
+        public static string test {
+            get {
+                return ResourceManager.GetString("test", resourceCulture);
+            }
+        }
     }
 }
