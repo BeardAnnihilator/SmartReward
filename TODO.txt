@@ -1,0 +1,1 @@
+javascript to connect to the hub and receive notif in Layout

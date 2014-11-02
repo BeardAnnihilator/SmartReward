@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,10 @@ namespace SmartReward.Controllers
 
         public ActionResult Index()
         {
+            IHubContext hub =  GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
+
+            hub.Clients.Group("a@yopmail.com").addChatMessage("coucou");
+            hub.Clients.Group("a@yopmal.com").addChatMessage("coucou");
             return View();
         }
     }
