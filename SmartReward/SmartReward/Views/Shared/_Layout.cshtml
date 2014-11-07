@@ -29,6 +29,7 @@
                         }
                         else if (Request.IsAuthenticated)
                         {
+                            <li id="notificationCount"></li>
                             <li>@Html.ActionLink("Se déconnecter", "LogOff", "Account", routeValues: null, htmlAttributes: new { id = "logoffButton", @class = "btn btn-default" })</li>
                         }
                     </ul>
