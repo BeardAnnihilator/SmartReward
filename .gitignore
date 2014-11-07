@@ -156,3 +156,7 @@ $RECYCLE.BIN/
 .DS_Store
 SmartReward/SmartReward/App_Data/aspnet-SmartReward-20140602101759_log.ldf
 SmartReward/SmartReward/App_Data/aspnet-SmartReward-20140602101759.mdf
+*.mdf
+*.ldf
+SmartReward/SmartReward/App_Data/aspnet-SmartReward-20140602101759.mdf
+SmartReward/SmartReward/App_Data/aspnet-SmartReward-20140602101759_log.ldf
