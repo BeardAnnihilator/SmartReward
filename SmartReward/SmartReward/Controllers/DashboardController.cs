@@ -14,10 +14,9 @@ namespace SmartReward.Controllers
 
         public ActionResult Index()
         {
-            IHubContext hub =  GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
+            //IHubContext hub =  GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
 
-            hub.Clients.Group("a@yopmail.com").addChatMessage("coucou");
-            hub.Clients.Group("a@yopmal.com").addChatMessage("coucou");
+            //hub.Clients.Group("a@yopmail.com").addChatMessage("coucou");
             return View();
         }
     }
